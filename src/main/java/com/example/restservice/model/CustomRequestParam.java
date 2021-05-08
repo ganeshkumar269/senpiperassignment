@@ -6,7 +6,7 @@ import lombok.Setter;
 public class CustomRequestParam {
 	@Getter
 	@Setter
-	private String fieldByType;
+	private String findByType;
 
 	@Getter
 	@Setter

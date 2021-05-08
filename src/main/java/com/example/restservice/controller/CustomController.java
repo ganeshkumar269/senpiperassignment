@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import com.example.restservice.repository.TrainingCenterRepository;
 import com.example.restservice.model.TrainingCenter;
+import com.example.restservice.exception.ValueNotFoundException;
 import com.example.restservice.model.CustomRequestParam;
 
 
@@ -45,7 +46,7 @@ public class CustomController {
 	@CrossOrigin(origins="*")
 	@GetMapping("/test")
 	public ResponseEntity<Object> test(CustomRequestParam params){
-		logger.info(params.getFieldByType());
+		logger.info(params.getFindByType());
 		return 	new ResponseEntity<Object>(new Object(),HttpStatus.OK);
 	}
 
@@ -106,7 +107,8 @@ public class CustomController {
 				{
 					if(value1 == null) {
 						status = HttpStatus.BAD_REQUEST;
-						break;
+						throw new ValueNotFoundException("no param called value1 defined");
+						// break;
 					}
 					list = tcRepository.findByCenterName(value1);
 					if(list == null) status = HttpStatus.BAD_REQUEST;
