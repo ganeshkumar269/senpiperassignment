@@ -11,7 +11,8 @@ import org.springframework.data.mongodb.repository.Query;
 
 
 public interface TrainingCenterRepository extends MongoRepository<TrainingCenter, ArrayList> {
-	/*find by 
+	/*
+	findByType
 		centerCode,
 		centerName,
 		studentCapacity range,

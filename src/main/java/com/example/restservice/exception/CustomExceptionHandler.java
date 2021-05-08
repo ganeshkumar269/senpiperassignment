@@ -47,6 +47,14 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler
 		ErrorResponse error  = new ErrorResponse("value cannot be null",details);
 		return new ResponseEntity<ErrorResponse>(error,HttpStatus.BAD_REQUEST);
 	}
+	
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
+		List<String> details = new ArrayList<String>();
+		details.add(ex.getLocalizedMessage());
+		ErrorResponse error  = new ErrorResponse("There has been a server error",details);
+		return new ResponseEntity<ErrorResponse>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 	
 	@Override

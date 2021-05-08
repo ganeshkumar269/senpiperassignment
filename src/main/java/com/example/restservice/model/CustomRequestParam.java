@@ -6,7 +6,8 @@ import lombok.Setter;
 public class CustomRequestParam {
 	@Getter
 	@Setter
-	private String findByType;
+
+	private String findByType = "all";
 
 	@Getter
 	@Setter

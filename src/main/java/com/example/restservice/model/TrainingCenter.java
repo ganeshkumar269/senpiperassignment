@@ -17,11 +17,6 @@ import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
-// import com.fasterxml.jackson.annotation.*;
-// import com.fasterxml.jackson.databind.*;
-
-
-// @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class TrainingCenter {
 
 	@Id
